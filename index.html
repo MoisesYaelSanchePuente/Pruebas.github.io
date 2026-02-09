@@ -2,42 +2,66 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Ejemplo CSS</title>
-    <link rel="stylesheet" href="css/estilos.css">
+    <title>Exposición CSS</title>
+
+    <!-- Conexión con CSS -->
+    <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
 
-<header class="encabezado">
-    <img src="img/logo.png" class="logo">
-    <h1>Exposición de CSS</h1>
+<header>
+    <h1>Hojas de Estilo en Cascada (CSS)</h1>
+    <p>Ejemplo práctico para entender CSS</p>
 </header>
 
-<nav class="menu">
-    <a href="#">Inicio</a>
-    <a href="#">CSS</a>
-    <a href="#">Ejemplo</a>
-</nav>
+<section class="contenedor">
+    
+    <div class="caja">
+        <h2>Cambiar Colores</h2>
+        <p class="texto-color">
+            CSS permite cambiar colores de texto, fondo y bordes.
+        </p>
+    </div>
 
-<section class="contenido">
-    <h2>¿Qué es CSS?</h2>
-    <p>
-        CSS es un lenguaje que permite darle estilo y diseño a una página web.
-    </p>
+    <div class="caja">
+        <h2>Cambiar Tamaño con Botón</h2>
+        <p id="textoTamaño">
+            Este texto cambia de tamaño al presionar el botón.
+        </p>
+        <button onclick="cambiarTamaño()">Cambiar tamaño</button>
+    </div>
 
-    <img src="img/animacion.gif" class="gif">
+    <div class="caja">
+        <h2>Animaciones CSS</h2>
+        <div class="animacion"></div>
+    </div>
 
-    <video controls class="video">
-        <source src="video/demo.mp4" type="video/mp4">
-    </video>
+    <div class="caja">
+        <h2>Multimedia con CSS</h2>
+        <img src="media/imagen1.png" alt="Imagen ejemplo">
+        <audio controls>
+            <source src="media/audio.mp3" type="audio/mpeg">
+        </audio>
+    </div>
 
-    <audio controls>
-        <source src="audio/sonido.mp3" type="audio/mp3">
-    </audio>
 </section>
 
-<footer class="pie">
-    <p>Proyecto CSS - GitHub</p>
+<section class="explicacion">
+    <h2>¿Cómo funciona esta página?</h2>
+    <ul>
+        <li>HTML crea la estructura</li>
+        <li>CSS da colores, tamaños, animaciones y diseño</li>
+        <li>JavaScript se usa solo para el botón</li>
+        <li>Flexbox acomoda los elementos</li>
+        <li>Media Queries hacen la página responsiva</li>
+    </ul>
+</section>
+
+<footer>
+    <p>Exposición de CSS - GitHub</p>
 </footer>
 
+<script src="script.js"></script>
 </body>
 </html>
+
