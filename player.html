@@ -1,29 +1,17 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Reproductor</title>
-</head>
-<body style="background:black;color:white;text-align:center;">
+<body>
 
-<h1 id="titulo"></h1>
-
-<video id="videoPlayer" width="800" controls autoplay></video>
-
-<br><br>
-<button onclick="volver()">Volver</button>
+<video width="800" controls autoplay>
+<source id="vid" type="video/mp4">
+</video>
 
 <script>
-let video = localStorage.getItem("video");
-let nombre = localStorage.getItem("nombrePeli");
-
-document.getElementById("videoPlayer").src = video;
-document.getElementById("titulo").innerText = nombre;
-
-function volver(){
-window.location="sala.html";
-}
+let params = new URLSearchParams(window.location.search);
+let video = params.get("video");
+document.getElementById("vid").src="videos/"+video;
 </script>
 
 </body>
 </html>
+
