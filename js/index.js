@@ -1,6 +1,14 @@
 import { db } from "./firebase.js";
-import { collection, addDoc, getDocs, query, where, updateDoc }
-from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+import { 
+collection,
+addDoc,
+getDocs,
+query,
+where,
+updateDoc,
+doc
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 window.ingresar = async function() {
 
@@ -21,12 +29,12 @@ const snapshot = await getDocs(q);
 
 if(snapshot.empty){
 
-// REGISTRO
+// 🔥 REGISTRO NUEVO
 await addDoc(collection(db,"usuarios"),{
-usuario,
-correo,
+usuario:usuario,
+correo:correo,
 contraseña:password,
-mayorEdad: esMayor,
+mayorEdad:esMayor,
 favoritos:[],
 historial:[]
 });
@@ -36,15 +44,18 @@ window.location="sala.html";
 
 }else{
 
-let docRef = snapshot.docs[0];
-let data = docRef.data();
+let docSnap = snapshot.docs[0];
+let data = docSnap.data();
 
-if(data.usuario===usuario && data.contraseña===password){
+if(data.usuario === usuario && data.contraseña === password){
 
-// 🔥 ACTUALIZAMOS SIEMPRE LA EDAD
-await updateDoc(docRef.ref,{
-mayorEdad: esMayor
-});
+// 🔥 ACTUALIZA SI CAMBIA TRUE/FALSE
+await updateDoc(
+doc(db,"usuarios",docSnap.id),
+{
+mayorEdad:esMayor
+}
+);
 
 localStorage.setItem("correo",correo);
 window.location="sala.html";
@@ -56,3 +67,8 @@ document.getElementById("mensaje").innerText="Usuario y/o contraseña incorrecta
 }
 
 }
+
+}
+
+}
+
