@@ -1,48 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Sala</title>
 <link rel="stylesheet" href="css/estilos.css">
 </head>
+<body class="fondo2">
 
-<body class="layout">
+<h2>Ordenar por:</h2>
+<button onclick="ordenGenero()">Genero</button>
+<button onclick="ordenABC()">ABC</button>
 
-<!-- SIDEBAR -->
-<div class="sidebar">
-
-<h2>Cine</h2>
-
-<input type="text" id="buscador" placeholder="Buscar...">
-
-<select id="ordenGenero">
-<option value="">Ordenar por Género</option>
-<option value="Acción">Acción</option>
-<option value="Ciencia Ficción">Ciencia Ficción</option>
-<option value="Terror">Terror</option>
-<option value="Comedia">Comedia</option>
-<option value="Drama">Drama</option>
-<option value="Animación">Animación</option>
-<option value="Fantasía">Fantasía</option>
-<option value="Suspenso">Suspenso</option>
-<option value="Wéstern">Wéstern</option>
-<option value="Musical">Musical</option>
-<option value="Pícaras">Pícaras</option>
-</select>
-
-<button onclick="ordenarAZ()">Ordenar A-Z</button>
-<button onclick="mostrarFavoritos()">Favoritos</button>
-<button onclick="mostrarHistorial()">Historial</button>
-<button onclick="regresar()">Regresar</button>
-
-</div>
-
-<!-- CONTENIDO -->
-<div class="contenido">
-<h1>Películas</h1>
-<div class="peliculas" id="contenedorPeliculas"></div>
-</div>
+<div id="peliculas"></div>
 
 <script type="module" src="js/sala.js"></script>
 </body>
 </html>
+<script type="module" src="js/sala.js"></script>
+</body>
+</html>
+
