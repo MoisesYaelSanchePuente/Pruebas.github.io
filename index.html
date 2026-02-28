@@ -1,153 +1,70 @@
 <!DOCTYPE html>
-<!-- 
-    Define el tipo de documento.
-    Indica al navegador que es HTML5.
--->
-<html lang="es">
-<!-- 
-    Etiqueta raíz del documento.
-    lang="es" indica que el contenido está en español.
--->
+<html>
 <head>
-    <meta charset="UTF-8">
-    <!-- 
-        Define la codificación de caracteres.
-        UTF-8 permite usar acentos y caracteres especiales.
-    -->
-    <title>Exposición CSS</title>
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="estilos.css">
-    <!-- 
-        Vincula el archivo de hojas de estilo CSS.
-        Aquí es donde se define el diseño visual de la página.
-    -->
+  <title>Registro de Alumnos</title>
 </head>
-
 <body>
-<!-- 
-    Contiene todo el contenido visible de la página.
--->
 
-<header>
-    
-    <h1>Hojas de Estilo en Cascada (CSS)</h1>
-    <p>Ejemplo práctico y visual</p> 
-</header>
-    
-<section class="contenedor">
-<!-- 
-    Sección principal que agrupa las cajas.
-    La clase "contenedor" se usa en CSS para aplicar Flexbox
-    y acomodar los elementos.
--->
+  <h2>Registro de Alumnos</h2>
 
-    <div class="caja">
-    <!-- 
-        Cada div con clase "caja" es un bloque de contenido.
-        CSS le da estilo como sombra, bordes y tamaño.
-    -->
-        <h2>Cambiar Colores (Arcoíris)</h2>
+  <input type="text" id="nombre" placeholder="Nombre">
+  <input type="text" id="carrera" placeholder="Carrera">
+  <input type="number" id="edad" placeholder="Edad">
+  <button onclick="agregarAlumno()">Agregar</button>
 
-        <p class="texto-color">
-        <!-- 
-            Este párrafo usa la clase "texto-color".
-            En CSS se aplica una animación que cambia
-            el color del texto cada segundo (arcoíris).
-        -->
-            Este texto cambia de color automáticamente cada segundo usando CSS.
-        </p>
-    </div>
+  <h3>Lista de Alumnos</h3>
+  <ul id="lista"></ul>
 
-    <div class="caja">
-        <h2>Cambiar Tamaño con Botón</h2>
+  <!-- Firebase -->
+  <script type="module">
 
-        <p id="textoTamaño">
-        <!-- 
-            Este texto tiene un id único.
-            JavaScript lo identifica para cambiar su tamaño.
-        -->
-            Este texto cambia de tamaño al presionar el botón.
-        </p>
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+    import { getFirestore, collection, addDoc, onSnapshot, deleteDoc, doc } 
+    from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-        <button onclick="cambiarTamaño()">
-        <!-- 
-            Botón que ejecuta una función JavaScript
-            llamada cambiarTamaño() al hacer clic.
-        -->
-            Cambiar tamaño
-        </button>
-    </div>
+    const firebaseConfig = {
+  apiKey: "AIzaSyBwI0SSFadFsw7ZsDeEhtbU-4EQTsEiLPg",
+  authDomain: "proyectofirestorealumnos.firebaseapp.com",
+  projectId: "proyectofirestorealumnos",
+  storageBucket: "proyectofirestorealumnos.firebasestorage.app",
+  messagingSenderId: "968446566310",
+  appId: "1:968446566310:web:f08d68f3963374315b3967"
+};
 
-    <div class="caja">
-        <h2>Animaciones CSS</h2>
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
 
-        <div class="animacion"></div>
-        <!-- 
-            Este div no tiene texto.
-            En CSS se le da tamaño, color y una animación
-            que lo mueve usando @keyframes.
-        -->
-    </div>
+    const lista = document.getElementById("lista");
 
-    <div class="caja">
-        <h2>Multimedia</h2>
+    window.agregarAlumno = async function() {
+      const nombre = document.getElementById("nombre").value;
+      const carrera = document.getElementById("carrera").value;
+      const edad = document.getElementById("edad").value;
 
-        <img src="media/imagen1.png" alt="Imagen ejemplo">
-        <!-- 
-            Imagen normal.
-            CSS controla su tamaño, bordes y adaptación
-            a diferentes pantallas.
-        -->
+      await addDoc(collection(db, "alumnos"), {
+        nombre: nombre,
+        carrera: carrera,
+        edad: edad
+      });
+    }
 
-        <img src="media/ejemplo.gif" alt="Gif ejemplo">
-        <!-- 
-            Imagen GIF animada.
-            CSS también controla su tamaño y diseño.
-        -->
+    onSnapshot(collection(db, "alumnos"), (snapshot) => {
+      lista.innerHTML = "";
+      snapshot.forEach((docu) => {
+        const li = document.createElement("li");
+        li.innerHTML = `
+          ${docu.data().nombre} - ${docu.data().carrera} - ${docu.data().edad}
+          <button onclick="eliminarAlumno('${docu.id}')">Eliminar</button>
+        `;
+        lista.appendChild(li);
+      });
+    });
 
-        <audio controls>
-        <!-- 
-            Reproductor de audio.
-            El atributo "controls" muestra los botones
-            de reproducir, pausar y volumen.
-        -->
-            <source src="media/audio.mp3" type="audio/mpeg">
-            <!-- Archivo de audio -->
-        </audio>
-    </div>
+    window.eliminarAlumno = async function(id) {
+      await deleteDoc(doc(db, "alumnos", id));
+    }
 
-</section>
-
-<section class="explicacion">
-<!-- 
-    Sección explicativa del funcionamiento de la página.
--->
-    <h2>¿Cómo funciona esta página?</h2>
-
-    <ul>
-        <!-- Lista de explicación -->
-        <li>HTML crea la estructura de la página</li>
-        <li>CSS controla colores, tamaños, animaciones y diseño</li>
-        <li>Flexbox acomoda los elementos</li>
-        <li>Media Queries hacen la página responsiva</li>
-        <li>JavaScript se usa solo para interacción</li>
-    </ul>
-</section>
-
-<footer>
-<!-- 
-    Pie de página.
-    Normalmente contiene información final o créditos.
--->
-    <p>Exposición de CSS - GitHub</p>
-</footer>
-
-<script src="script.js"></script>
-<!-- 
-    Vincula el archivo JavaScript.
-    Se coloca al final para que la página cargue primero.
--->
+  </script>
 
 </body>
 </html>
