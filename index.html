@@ -1,72 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Registro de Alumnos</title>
+<link rel="stylesheet" href="css/estilos.css">
 </head>
-<body>
+<body class="fondo1">
 
-  <h2>Registro de Alumnos</h2>
+<h1 class="neon">
+<span class="c1">Cine</span>
+<span class="c2">Gratis</span>
+<span class="c3">El Séptimo Arte</span>
+</h1>
 
-  <input type="text" id="nombre" placeholder="Nombre">
-  <input type="text" id="carrera" placeholder="Carrera">
-  <input type="number" id="edad" placeholder="Edad">
-  <button onclick="agregarAlumno()">Agregar</button>
+<div class="login">
+<input id="usuario" placeholder="Usuario">
+<input id="correo" placeholder="Correo">
+<input id="password" type="password" placeholder="Contraseña">
 
-  <h3>Lista de Alumnos</h3>
-  <ul id="lista"></ul>
+<label>Mayor de edad?</label>
+<input type="radio" name="edad" value="si">Si
+<input type="radio" name="edad" value="no">No
 
-  <!-- Firebase -->
-  <script type="module">
+<button onclick="ingresar()">Ingresar a la sala</button>
 
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-    import { getFirestore, collection, addDoc, onSnapshot, deleteDoc, doc } 
-    from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+<p id="mensaje"></p>
+</div>
 
-    const firebaseConfig = {
-  apiKey: "AIzaSyBwI0SSFadFsw7ZsDeEhtbU-4EQTsEiLPg",
-  authDomain: "proyectofirestorealumnos.firebaseapp.com",
-  projectId: "proyectofirestorealumnos",
-  storageBucket: "proyectofirestorealumnos.firebasestorage.app",
-  messagingSenderId: "968446566310",
-  appId: "1:968446566310:web:f08d68f3963374315b3967"
-};
-
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-
-    const lista = document.getElementById("lista");
-
-    window.agregarAlumno = async function() {
-      const nombre = document.getElementById("nombre").value;
-      const carrera = document.getElementById("carrera").value;
-      const edad = document.getElementById("edad").value;
-
-      await addDoc(collection(db, "alumnos"), {
-        nombre: nombre,
-        carrera: carrera,
-        edad: edad
-      });
-    }
-
-    onSnapshot(collection(db, "alumnos"), (snapshot) => {
-      lista.innerHTML = "";
-      snapshot.forEach((docu) => {
-        const li = document.createElement("li");
-        li.innerHTML = `
-          ${docu.data().nombre} - ${docu.data().carrera} - ${docu.data().edad}
-          <button onclick="eliminarAlumno('${docu.id}')">Eliminar</button>
-        `;
-        lista.appendChild(li);
-      });
-    });
-
-    window.eliminarAlumno = async function(id) {
-      await deleteDoc(doc(db, "alumnos", id));
-    }
-
-  </script>
+<script type="module" src="js/index.js"></script>
 
 </body>
 </html>
-
 
