@@ -1,77 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Sala - Cine Gratis</title>
-<link rel="stylesheet" href="css/sala.css">
+<link rel="stylesheet" href="css/estilos.css">
 </head>
+<body class="fondo2">
 
-<body>
+<h2>Ordenar por:</h2>
+<button onclick="ordenGenero()">Genero</button>
+<button onclick="ordenABC()">ABC</button>
 
-<div class="sidebar">
-
-<h2>Cine</h2>
-
-<input type="text" id="buscador" placeholder="Buscar película">
-
-<button onclick="mostrarFavoritos()">Favoritos</button>
-<button onclick="mostrarHistorial()">Historial</button>
-<button onclick="regresar()">Regresar</button>
-
-</div>
-
-<div class="contenido">
-
-<h1>Películas Disponibles</h1>
-
-<div class="peliculas" id="contenedorPeliculas">
-
-<!-- Películas -->
-<div class="pelicula" onclick="verPelicula('Avatar')">
-<img src="https://m.media-amazon.com/images/I/41kTVLeW1CL._AC_.jpg">
-<p>Avatar</p>
-</div>
-
-<div class="pelicula" onclick="verPelicula('Avengers')">
-<img src="https://m.media-amazon.com/images/I/71niXI3lxlL._AC_SY679_.jpg">
-<p>Avengers</p>
-</div>
-
-<div class="pelicula" onclick="verPelicula('Titanic')">
-<img src="https://m.media-amazon.com/images/I/71yypoVvTnL._AC_SY679_.jpg">
-<p>Titanic</p>
-</div>
-
-<div class="pelicula" onclick="verPelicula('Joker')">
-<img src="https://m.media-amazon.com/images/I/71zj2gZsK5L._AC_SY679_.jpg">
-<p>Joker</p>
-</div>
-
-<div class="pelicula" onclick="verPelicula('Batman')">
-<img src="https://m.media-amazon.com/images/I/81xL7xH1GvL._AC_SY679_.jpg">
-<p>Batman</p>
-</div>
-
-<div class="pelicula" onclick="verPelicula('Spiderman')">
-<img src="https://m.media-amazon.com/images/I/81fZ1pC5HIL._AC_SY679_.jpg">
-<p>Spiderman</p>
-</div>
-
-<div class="pelicula" onclick="verPelicula('Frozen')">
-<img src="https://m.media-amazon.com/images/I/81lQbGkXHGL._AC_SY679_.jpg">
-<p>Frozen</p>
-</div>
-
-<div class="pelicula" onclick="verPelicula('Toy Story')">
-<img src="https://m.media-amazon.com/images/I/81H8vC6R3mL._AC_SY679_.jpg">
-<p>Toy Story</p>
-</div>
-
-</div>
-
-</div>
+<div id="peliculas"></div>
 
 <script type="module" src="js/sala.js"></script>
-
 </body>
 </html>
