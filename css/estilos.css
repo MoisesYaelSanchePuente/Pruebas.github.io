@@ -74,14 +74,16 @@ display: flex;
 flex-direction: column;
 align-items: center;   /* centra horizontal */
 }
-.pelicula {
-width: 180px;      /* tamaño total de la tarjeta */
-text-align: center;
+
+.pelicula{
+width:160px;
 }
 
-.pelicula img {
-width: 100%;
-height: 220px;     /* más pequeña */
-object-fit: cover;
-border-radius: 15px;
+.pelicula img{
+width:160px !important;
+height:220px !important;
+object-fit:cover;
+border-radius:12px;
+display:block;
+margin:auto;
 }
