@@ -29,7 +29,7 @@ const snapshot = await getDocs(q);
 
 if(snapshot.empty){
 
-// 🔥 REGISTRO NUEVO
+// REGISTRO
 await addDoc(collection(db,"usuarios"),{
 usuario:usuario,
 correo:correo,
@@ -49,7 +49,6 @@ let data = docSnap.data();
 
 if(data.usuario === usuario && data.contraseña === password){
 
-// 🔥 ACTUALIZA SI CAMBIA TRUE/FALSE
 await updateDoc(
 doc(db,"usuarios",docSnap.id),
 {
@@ -66,4 +65,4 @@ document.getElementById("mensaje").innerText="Usuario y/o contraseña incorrecta
 
 }
 
-}
+};
