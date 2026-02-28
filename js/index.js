@@ -67,8 +67,3 @@ document.getElementById("mensaje").innerText="Usuario y/o contraseña incorrecta
 }
 
 }
-
-}
-
-}
-
