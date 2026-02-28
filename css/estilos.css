@@ -1,20 +1,26 @@
 body{
 margin:0;
-font-family:Arial;
-}
-
-.fondo1{
+font-family:Arial, Helvetica, sans-serif;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
 background:url("../img/fondo1.png");
 background-repeat:repeat;
+color:white;
 }
 
-.fondo2{
-background:url("../img/fondo2.png");
+.contenedor{
+text-align:center;
+background:rgba(0,0,0,0.7);
+padding:40px;
+border-radius:20px;
+box-shadow:0 0 25px yellow;
 }
 
 .neon span{
-animation:pulse 2s infinite;
 font-size:50px;
+animation:pulse 2s infinite;
 }
 
 .c1{color:#00ffff;}
@@ -27,37 +33,9 @@ font-size:50px;
 100%{text-shadow:0 0 5px currentColor;}
 }
 
-.card{
-border:3px solid yellow;
-box-shadow:0 0 15px yellow;
-display:inline-block;
-margin:20px;
-padding:10px;
-
-}
-.contenedor{
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-height:100vh;
-text-align:center;
-}
-
-.titulo{
-margin-bottom:40px;
-}
-
-.login{
-background:rgba(0,0,0,0.6);
-padding:40px;
-border-radius:20px;
-box-shadow:0 0 20px yellow;
-}
-
 .textoNeon{
 color:#ffff00;
-text-shadow:0 0 10px #ffff00, 0 0 20px #ffff00;
+text-shadow:0 0 10px #ffff00, 0 0 20px #ffff00, 0 0 30px #ffff00;
 font-weight:bold;
 }
 
@@ -67,13 +45,18 @@ width:250px;
 border-radius:10px;
 border:none;
 text-align:center;
+margin-bottom:15px;
 }
 
 button{
 padding:10px 20px;
 border:none;
 border-radius:10px;
-background:yellow;
+background:#ffff00;
 cursor:pointer;
 font-weight:bold;
+}
+
+#mensaje{
+margin-top:15px;
 }
