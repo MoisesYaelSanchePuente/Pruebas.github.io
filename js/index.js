@@ -1,7 +1,5 @@
-import { updateDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 import { db } from "./firebase.js";
-import { collection, addDoc, getDocs, query, where } 
-
+import { collection, addDoc, getDocs, query, where, updateDoc }
 from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 window.ingresar = async function() {
@@ -9,12 +7,14 @@ window.ingresar = async function() {
 let usuario = document.getElementById("usuario").value;
 let correo = document.getElementById("correo").value;
 let password = document.getElementById("password").value;
-let edad = document.querySelector('input[name="edad"]:checked')?.value;
+let edadSeleccionada = document.querySelector('input[name="edad"]:checked');
 
-if(!usuario || !correo || !password || !edad){
+if(!usuario || !correo || !password || !edadSeleccionada){
 document.getElementById("mensaje").innerText="Completa todos los campos";
 return;
 }
+
+let esMayor = edadSeleccionada.value === "si";
 
 const q = query(collection(db,"usuarios"), where("correo","==",correo));
 const snapshot = await getDocs(q);
@@ -26,7 +26,7 @@ await addDoc(collection(db,"usuarios"),{
 usuario,
 correo,
 contraseña:password,
-mayorEdad: edad==="si",
+mayorEdad: esMayor,
 favoritos:[],
 historial:[]
 });
@@ -41,9 +41,9 @@ let data = docRef.data();
 
 if(data.usuario===usuario && data.contraseña===password){
 
-// 🔥 ACTUALIZA EDAD SI CAMBIA
+// 🔥 ACTUALIZAMOS SIEMPRE LA EDAD
 await updateDoc(docRef.ref,{
-mayorEdad: edad==="si"
+mayorEdad: esMayor
 });
 
 localStorage.setItem("correo",correo);
