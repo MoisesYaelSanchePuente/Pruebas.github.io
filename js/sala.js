@@ -5,14 +5,15 @@ from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 const peliculasData = [
 
 {
-id:"darkknight",
-nombre:"The Dark Knight",
-genero:"Acción",
+id:"resplandor",
+nombre:"El resplandor",
+genero:"Terror",
 adulto:false,
-img:"darkknight.png",
-video:"darkknight.mp4",
-sinopsis:"Redefinió el cine de superhéroes con un tono serio y realista."
+img:"resplandor.png",
+video:"resplandor.mp4",
+sinopsis:"Un clásico del terror psicológico dirigido por Stanley Kubrick."
 },
+  
 
 {
 id:"interestelar",
@@ -25,13 +26,13 @@ sinopsis:"Famosa por su precisión visual y emocional sobre el tiempo y el espac
 },
 
 {
-id:"resplandor",
-nombre:"El resplandor",
-genero:"Terror",
+id:"darkknight",
+nombre:"The Dark Knight",
+genero:"Acción",
 adulto:false,
-img:"resplandor.png",
-video:"resplandor.mp4",
-sinopsis:"Un clásico del terror psicológico dirigido por Stanley Kubrick."
+img:"darkknight.png",
+video:"darkknight.mp4",
+sinopsis:"Redefinió el cine de superhéroes con un tono serio y realista."
 },
 
 {
@@ -192,4 +193,5 @@ mostrar();
 }
 
 mostrar();
+
 
