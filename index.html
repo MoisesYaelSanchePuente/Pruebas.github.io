@@ -1,32 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
 <link rel="stylesheet" href="css/estilos.css">
 </head>
-<body class="fondo1">
+
+<body>
+
+<div class="contenedor">
 
 <h1 class="neon">
-<span class="c1">Cine</span>
-<span class="c2">Gratis</span>
+<span class="c1">Cine</span><br>
+<span class="c2">Gratis</span><br>
 <span class="c3">El Séptimo Arte</span>
 </h1>
 
-<div class="login">
-<input id="usuario" placeholder="Usuario">
-<input id="correo" placeholder="Correo">
-<input id="password" type="password" placeholder="Contraseña">
+<br>
 
-<label>Mayor de edad?</label>
-<input type="radio" name="edad" value="si">Si
-<input type="radio" name="edad" value="no">No
+<input id="usuario" placeholder="Usuario"><br>
+<input id="correo" placeholder="Correo"><br>
+<input id="password" type="password" placeholder="Contraseña"><br>
+
+<p class="textoNeon">¿Mayor de edad?</p>
+
+<label class="textoNeon">
+<input type="radio" name="edad" value="si"> Si
+</label>
+
+<label class="textoNeon">
+<input type="radio" name="edad" value="no"> No
+</label>
+
+<br><br>
 
 <button onclick="ingresar()">Ingresar a la sala</button>
 
-<p id="mensaje"></p>
+<p id="mensaje" class="textoNeon"></p>
+
 </div>
 
 <script type="module" src="js/index.js"></script>
 
 </body>
 </html>
-
