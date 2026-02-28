@@ -33,4 +33,47 @@ box-shadow:0 0 15px yellow;
 display:inline-block;
 margin:20px;
 padding:10px;
+
+}
+.contenedor{
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+height:100vh;
+text-align:center;
+}
+
+.titulo{
+margin-bottom:40px;
+}
+
+.login{
+background:rgba(0,0,0,0.6);
+padding:40px;
+border-radius:20px;
+box-shadow:0 0 20px yellow;
+}
+
+.textoNeon{
+color:#ffff00;
+text-shadow:0 0 10px #ffff00, 0 0 20px #ffff00;
+font-weight:bold;
+}
+
+input{
+padding:10px;
+width:250px;
+border-radius:10px;
+border:none;
+text-align:center;
+}
+
+button{
+padding:10px 20px;
+border:none;
+border-radius:10px;
+background:yellow;
+cursor:pointer;
+font-weight:bold;
 }
