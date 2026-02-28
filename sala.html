@@ -2,76 +2,47 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Sala - Cine Gratis</title>
-<link rel="stylesheet" href="css/sala.css">
+<title>Sala</title>
+<link rel="stylesheet" href="css/estilos.css">
 </head>
 
-<body>
+<body class="layout">
 
+<!-- SIDEBAR -->
 <div class="sidebar">
 
 <h2>Cine</h2>
 
-<input type="text" id="buscador" placeholder="Buscar película">
+<input type="text" id="buscador" placeholder="Buscar...">
 
+<select id="ordenGenero">
+<option value="">Ordenar por Género</option>
+<option value="Acción">Acción</option>
+<option value="Ciencia Ficción">Ciencia Ficción</option>
+<option value="Terror">Terror</option>
+<option value="Comedia">Comedia</option>
+<option value="Drama">Drama</option>
+<option value="Animación">Animación</option>
+<option value="Fantasía">Fantasía</option>
+<option value="Suspenso">Suspenso</option>
+<option value="Wéstern">Wéstern</option>
+<option value="Musical">Musical</option>
+<option value="Pícaras">Pícaras</option>
+</select>
+
+<button onclick="ordenarAZ()">Ordenar A-Z</button>
 <button onclick="mostrarFavoritos()">Favoritos</button>
 <button onclick="mostrarHistorial()">Historial</button>
 <button onclick="regresar()">Regresar</button>
 
 </div>
 
+<!-- CONTENIDO -->
 <div class="contenido">
-
-<h1>Películas Disponibles</h1>
-
-<div class="peliculas" id="contenedorPeliculas">
-
-<!-- Películas -->
-<div class="pelicula" onclick="verPelicula('Avatar')">
-<img src="https://m.media-amazon.com/images/I/41kTVLeW1CL._AC_.jpg">
-<p>Avatar</p>
-</div>
-
-<div class="pelicula" onclick="verPelicula('Avengers')">
-<img src="https://m.media-amazon.com/images/I/71niXI3lxlL._AC_SY679_.jpg">
-<p>Avengers</p>
-</div>
-
-<div class="pelicula" onclick="verPelicula('Titanic')">
-<img src="https://m.media-amazon.com/images/I/71yypoVvTnL._AC_SY679_.jpg">
-<p>Titanic</p>
-</div>
-
-<div class="pelicula" onclick="verPelicula('Joker')">
-<img src="https://m.media-amazon.com/images/I/71zj2gZsK5L._AC_SY679_.jpg">
-<p>Joker</p>
-</div>
-
-<div class="pelicula" onclick="verPelicula('Batman')">
-<img src="https://m.media-amazon.com/images/I/81xL7xH1GvL._AC_SY679_.jpg">
-<p>Batman</p>
-</div>
-
-<div class="pelicula" onclick="verPelicula('Spiderman')">
-<img src="https://m.media-amazon.com/images/I/81fZ1pC5HIL._AC_SY679_.jpg">
-<p>Spiderman</p>
-</div>
-
-<div class="pelicula" onclick="verPelicula('Frozen')">
-<img src="https://m.media-amazon.com/images/I/81lQbGkXHGL._AC_SY679_.jpg">
-<p>Frozen</p>
-</div>
-
-<div class="pelicula" onclick="verPelicula('Toy Story')">
-<img src="https://m.media-amazon.com/images/I/81H8vC6R3mL._AC_SY679_.jpg">
-<p>Toy Story</p>
-</div>
-
-</div>
-
+<h1>Películas</h1>
+<div class="peliculas" id="contenedorPeliculas"></div>
 </div>
 
 <script type="module" src="js/sala.js"></script>
-
 </body>
 </html>
