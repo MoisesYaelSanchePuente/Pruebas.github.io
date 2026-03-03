@@ -34,6 +34,15 @@ video:"bueno_malo_feo.mp4",
 sinopsis:"La cara más conocida del spaghetti western y su música inolvidable."
 },
 {
+id:"bueno_malo_feo",
+nombre:"El bueno, el malo y el feo",
+genero:"Wéstern",
+adulto:false,
+img:"bueno_malo_feo.png",
+video:"bueno_malo_feo.mp4",
+sinopsis:"La cara más conocida del spaghetti western y su música inolvidable."
+},
+{
 id:"darkknight",
 nombre:"The Dark Knight",
 genero:"Acción",
@@ -201,6 +210,7 @@ mostrar();
 }
 
 mostrar();
+
 
 
 
