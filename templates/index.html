@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blog</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+        }
+
+        .anio {
+            cursor: pointer;
+            background: #333;
+            color: white;
+            padding: 10px;
+            margin: 5px;
+        }
+
+        .meses {
+            display: none;
+            margin-bottom: 10px;
+        }
+
+        a {
+            display: block;
+            padding: 5px;
+            text-decoration: none;
+            color: blue;
+        }
+    </style>
+
+    <script>
+function toggle(id) {
+    let x = document.getElementById(id);
+
+    if (x.style.display === "block") {
+        x.style.display = "none";
+    } else {
+        x.style.display = "block";
+    }
+}
+</script>
+</head>
+
+<body>
+
+<h1>RAPID EXPRESS BLOG</h1>
+
+{% for anio, meses in agrupado.items() %}
+    <div class="anio" onclick="toggle('a{{anio}}')">
+        {{ anio }}
+    </div>
+
+    <div class="meses" id="a{{anio}}">
+        {% for mes in meses %}
+            <a href="/{{ mes }}">{{ mes }}</a>
+        {% endfor %}
+    </div>
+{% endfor %}
+
+<br><br>
+<!-- <a href="/regenerar">🔄 Regenerar desde Word</a>-->
+
+</body>
+</html>
