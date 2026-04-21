@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/89f27ed3-0e2f-45ec-b68e-f0c9995d26e0/resourceGroups/appsvc_linux_eastus/providers/Microsoft.Web/sites/rapidexpressblogjorge",
+    "appService.deploySubpath": "."
+}
